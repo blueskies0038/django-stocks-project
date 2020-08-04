@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'stocks/base.html' %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+{% if ticker %}
+
+<div>
+    {% for item in ticker %}
+        <div style="">
+            <big style="text-transform: uppercase">{{ item }}</big>
+            <a style="float:right" role="button" class="btn btn-outline-dark" href="{% url 'delete' item.id %}">Delete</a>
+            <hr>
+        </div>
+    {% endfor %}
+</div>
+
+{% else %}
+    You don't have nay stocks...
+{% endif %}
+
+{% endblock %}
+</body>
+</html>
